@@ -101,11 +101,14 @@
                         }
                     }
 
-                    if ('redirect' == 'redirect') {
+                    if ($body['mode_offer_page'] == 'redirect') {
                         header('Location: ' . $body['url_offer_page'], TRUE, 302);
                         exit(0);
                     }
 
+                    if ($body['mode_offer_page'] == 'iframe') {
+                        echo '<iframe src="' . $body['url_offer_page'] . '" width="100%" height="100%" align="left"></iframe> <style> body { padding: 0; margin: 0; } iframe { margin: 0; padding: 0; border: 0; } </style>';
+                    }
                 }
 
 
